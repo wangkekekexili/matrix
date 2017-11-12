@@ -28,7 +28,7 @@ func Print(w io.Writer, m Matrix, p int) {
 
 	colToFormat := make(map[int]string, cols)
 	for col, maxLength := range colMaxLength {
-		colToFormat[col] = fmt.Sprintf("%%-%v.%df", maxLength+1, p)
+		colToFormat[col] = fmt.Sprintf("%%%v.%df", maxLength+1, p)
 	}
 
 	for row := 0; row != rows; row++ {

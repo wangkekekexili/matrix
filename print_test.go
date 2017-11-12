@@ -14,11 +14,11 @@ func TestPrint(t *testing.T) {
 	}{
 		{
 			m:   mat.NewDense(1, 1, []float64{0}),
-			exp: "0.0 \n",
+			exp: " 0.0\n",
 		},
 		{
 			m:   mat.NewDense(2, 2, []float64{1.37, 2.2, 3.5, 4.2}),
-			exp: "1.4 2.2 \n3.5 4.2 \n",
+			exp: " 1.4 2.2\n 3.5 4.2\n",
 		},
 	}
 
