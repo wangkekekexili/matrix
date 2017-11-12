@@ -4,13 +4,13 @@ import (
 	"math"
 )
 
+var EPSILON = 0.00000001
+
 type Matrix interface {
 	Dims() (r, c int)
 	At(i, j int) float64
 	Set(i, j int, v float64)
 }
-
-var EPSILON = 0.00000001
 
 // SameValues returns true if a and b are of the same size and contain same value at the same position.
 func SameValues(a, b Matrix) bool {

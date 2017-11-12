@@ -127,7 +127,11 @@ func replaceToClear(m Matrix, pRow, pCol, rowToClear int) {
 			if m.At(pRow, c) == 0 {
 				continue
 			}
-			m.Set(rowToClear, c, m.At(rowToClear, c)+m.At(pRow, c)*multiplicand)
+			toReplace := m.At(rowToClear, c) + m.At(pRow, c)*multiplicand
+			if math.Abs(toReplace) < EPSILON {
+				toReplace = 0
+			}
+			m.Set(rowToClear, c, toReplace)
 		}
 	}
 }
