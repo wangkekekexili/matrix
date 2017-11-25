@@ -17,6 +17,10 @@ func TestRREF(t *testing.T) {
 			expRref: mat.NewDense(1, 1, []float64{1}),
 		},
 		{
+			m:       mat.NewDense(2, 2, []float64{0, 0, 0, 0}),
+			expRref: mat.NewDense(2, 2, []float64{0, 0, 0, 0}),
+		},
+		{
 			m:       mat.NewDense(3, 6, []float64{0, 3, -6, 6, 4, -5, 3, -7, 8, -5, 8, 9, 3, -9, 12, -9, 6, 15}),
 			expRref: mat.NewDense(3, 6, []float64{1, 0, -2, 3, 0, -24, 0, 1, -2, 2, 0, -7, 0, 0, 0, 0, 1, 4}),
 		},
