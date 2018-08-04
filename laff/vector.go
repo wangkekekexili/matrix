@@ -1,5 +1,7 @@
 package laff
 
+import "math"
+
 type Vector struct {
 	values []float64
 	err    error
@@ -61,4 +63,26 @@ func (v *Vector) AXPY(alpha float64, x *Vector) *Vector {
 	})
 
 	return v
+}
+
+func (v *Vector) Dot(right *Vector) float64 {
+	var result float64
+	for i := range v.values {
+		result += v.values[i] * right.values[i]
+	}
+	return result
+}
+
+func (v *Vector) DotSafe(right *Vector) (float64, error) {
+	if v.Size() != right.Size() {
+		return 0, ErrVectorSizeMismatch{
+			left:  v.Size(),
+			right: right.Size(),
+		}
+	}
+	return v.Dot(right), nil
+}
+
+func (v *Vector) Length() float64 {
+	return math.Sqrt(v.Dot(v))
 }

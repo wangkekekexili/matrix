@@ -51,3 +51,12 @@ func TestVector_AXPY(t *testing.T) {
 		t.Fatalf("got %v; want %v", y.values, exp)
 	}
 }
+
+func TestVector_Length(t *testing.T) {
+	v := NewVector([]float64{3, 4})
+	expLength := 5.0
+	gotLength := v.Length()
+	if gotLength != expLength {
+		t.Fatalf("got v.Length()=%v; want %v", gotLength, expLength)
+	}
+}
